@@ -14,10 +14,13 @@
 bash
 Copy code
 git clone https://github.com/adoyenne/skillfactory_FPW155_module_E6.git
-cd skillfactory_FPW155_module_E6
+cd skillfactory_FPW155_module_E6/module_E6
+
+В папке module_E6 находится сам проект + окружение и requirements.txt со всеми зависимостями
+
 2. Создайте и активируйте виртуальное окружение
 
-Рекомендуется использовать виртуальное окружение для управления зависимостями:
+Рекомендуется использовать виртуальное окружение для управления зависимостями (venv есть в папке module_E6) :
 
 python -m venv venv
 source venv/bin/activate  # Для Windows: venv\Scripts\activate
@@ -27,7 +30,9 @@ source venv/bin/activate  # Для Windows: venv\Scripts\activate
 
 pip install -r requirements.txt
 
-4. Настройте базу данных
+Версия интерпретатора python, использованного в разработке: Python 3.9.6
+
+4. Настройте базу данных (если необходимо, но она есть а проекте)
 
 Примените миграции, чтобы создать необходимые таблицы в базе данных:
 
@@ -61,15 +66,11 @@ python manage.py runserver
 
 Описание
 
-API для взаимодействия:
-/api/users/ — список пользователей.
-/api/users/me/ — информация о текущем пользователе.
-/api/chats/ — список чатов.
-/api/chats/<int:chat_id>/messages/ — сообщения в чате.
-/api/login/ — аутентификация пользователя.
 
 Тесторые пользователи и чат:
+
 Тестовые пользователи в БД:
+
 username: test1
 password: QWERTYU12345
 
@@ -77,9 +78,17 @@ username: test2
 password: QWERTYU12345
 
 Тестовый чат (прежде чем отправлять сообщения, нужно выбрать чат иначе будет ошибка!):
-Test_chat1
+Test_chat1 
+Test_chat2
 
 После нажатия на Test_chat1, можно писать в чате. Также, можно создавать новые чаты, в графе Chat Name: написать имя чата и нажать на кнопку create chat, он появится в списке
+
+API для взаимодействия:
+/api/users/ — список пользователей.
+/api/users/me/ — информация о текущем пользователе.
+/api/chats/ — список чатов.
+/api/chats/<int:chat_id>/messages/ — сообщения в чате.
+/api/login/ — аутентификация пользователя.
 
 Примечания
 Убедитесь, что порты 8001 и 8000 доступны на вашем компьютере.
